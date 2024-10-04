@@ -47,4 +47,23 @@ FROM
     GROUP BY 1, 2, 3
     HAVING COUNT(a.id) > 3
   ) a
+
+--STEP 3: The previous answer will give you only in either year 2019 or 2020. A better answer for both years:
+SELECT
+  DISTINCT(customer_name)
+FROM
+  (SELECT 
+    b.id as customer_id,
+    b.name as customer_name
+    YEAR(a.created_at) as transaction_year
+    COUNT(a.id) AS transation_count
+  FROM transactions a
+    INNER JOIN users b on a.user_id = b.id
+    WHERE YEAR(a.created_at) IN (2019, 2020)
+    GROUP BY 1, 2, 3
+    HAVING COUNT(YEAR(a.created_at)=2019) > 3
+          AND
+          COUNT(YEAR(a.created_at)=2020) > 3
+  ) a
+
 ```
