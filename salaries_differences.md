@@ -20,7 +20,7 @@ db_dept
 id: int64
 department: object
 
-``
+```
 # Import your libraries
 import pandas as pd
 
@@ -34,3 +34,4 @@ df = db_employee.merge(db_dept, how='left', left_on='department_id', right_on='i
 
 solution = abs(df[df['department'] == 'engineering']['salary'].max() - df[df['department'] == 'marketing']['salary'].max())
 
+```
