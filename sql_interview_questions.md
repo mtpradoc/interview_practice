@@ -5,14 +5,14 @@
 
 2. How would you write a query that would only select unique records in a column?
 
-```
+```sql
 SELECT DISTINCT(column)
 FROM table
 ```
 
 3. I have 2 columns called drug_name and drug_price. Each drug has different prices depending on where it is being sold. I want to see the drug name with the highest price it is being sold at. How would you write that query?
 
-```
+```sql
 SELECT
   drug_name,
   MAX(drug_price)
@@ -25,18 +25,19 @@ FROM drugs
 
 5. I have a column drug_name. I want to look at drugs that start with "Aspirin". How would you only return names that start with Aspirin?
 
-```
+```sql
    SELECT
      drug_name
    FROM drugs
    WHERE drug_name LIKE 'Aspriri%'
 ```
+
 # Intermediate
 
 1. What is a subquery and can you describe how would you write that?
    A subquery is a query nested inside of a larger query.
 
-   ```
+   ```sql
    SELECT *
    FROM table
    WHERE user_id IN
@@ -56,7 +57,7 @@ FROM drugs
    The CASE statement goes through conditions and returns a value when the first condition is met (like an IF-THEN-ELSE statement). So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the ELSE clause. 
 It can be written like this:
 
-  ```
+  ```sql
   SELECT
     CASE
       WHEN column > 2 THEN 'output_1'
@@ -69,7 +70,7 @@ It can be written like this:
 
    The UNION operator is used to combine the result-set of two or more SELECT statements.
 
-   ```
+   ```sql
    SELECT
      column1,
      column2
@@ -83,7 +84,7 @@ It can be written like this:
 
 6. I have 2 tables. One table contains patient information and the other contains drug information. In the patient table we have patient_id, first_name, last_name, and disease. In the drug table we have patiend_id, dispensed_drug, date_dispensed. Can you create a query to return the patient_id, disease, and dispensed_drug?
 
-   ```
+   ```sql
    SELECT
      p.patient_id,
      p.disease,
