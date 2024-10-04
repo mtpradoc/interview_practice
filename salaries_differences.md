@@ -20,7 +20,7 @@ db_dept
 id: int64
 department: object
 
-```
+```python
 # Import your libraries
 import pandas as pd
 
